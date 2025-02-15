@@ -175,6 +175,7 @@ for _, ScriptB in pairs(Scripts) do
 	NewButton.Visible = true
 	NewButton.Text = ScriptB.Name
 	NewButton.MouseButton1Click:Connect(function()
+			print("clicked")
 		loadstring(ScriptB.Src)()
 	end)
 end
