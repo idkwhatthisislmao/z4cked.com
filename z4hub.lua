@@ -1,23 +1,23 @@
 local Scripts = {
 	[1] = {
 		Name = "Slippery (toggle - h)",
-		Src = "game:HttpGet('https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/slip.lua', true)",
+		Src = game:HttpGet('https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/slip.lua', true),
 	},
 	[2] = {
 		Name = "Jerk Off Tool (R6)",
-		Src = 'game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/jerkoff.lua")'
+		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/jerkoff.lua")
 	},
 	[3] = {
 		Name = "Infinite Yield",
-		Src = 'game:HttpGet("https://raw.githubusercontent.com/edgeiy/infiniteyield/master/source")'
+		Src = game:HttpGet("https://raw.githubusercontent.com/edgeiy/infiniteyield/master/source")
 	},
 	[4] = {
 		Name = "Jailbreak Carspeed Spoofer",
-		Src = 'game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/jailbreakcarspeedspoofer")'
+		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/jailbreakcarspeedspoofer")
 	},
 	[5] = {
 		Name = "Roblox Freecam (Shift P)",
-		Src = 'game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/freecam.lua")'
+		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/freecam.lua")
 	},
 }
 
@@ -175,7 +175,7 @@ for _, ScriptB in pairs(Scripts) do
 	NewButton.Visible = true
 	NewButton.Text = ScriptB.Name
 	NewButton.MouseButton1Click:Connect(function()
-			print("clicked")
+		print("Executed "..ScriptB.Name.."!")
 		loadstring(ScriptB.Src)()
 	end)
 end
