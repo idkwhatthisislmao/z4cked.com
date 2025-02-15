@@ -186,3 +186,5 @@ Mainframe.Active = true
 close.MouseButton1Click:Connect(function()
 	z4hub:Destroy()
 end)
+
+print("Loaded z4 hub")
