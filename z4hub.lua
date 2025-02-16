@@ -19,6 +19,10 @@ local Scripts = {
 		Name = "Roblox Freecam (Shift P)",
 		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/freecam.lua")
 	},
+	[6] = {
+		Name = "Usercreation",
+		Src = game:HttpGet("https://raw.githubusercontent.com/1price/usercreation/main/UserCreation.lua", true)
+	},
 }
 
 if game.CoreGui:FindFirstChild("z4hub") then return end
