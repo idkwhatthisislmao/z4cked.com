@@ -69,7 +69,7 @@ title.BorderSizePixel = 0
 title.Position = UDim2.new(-0.0452571139, 0, 0.0241935849, 0)
 title.Size = UDim2.new(0.438805968, 0, 0.144927531, 0)
 title.Font = Enum.Font.SourceSansBold
-title.Text = "z4 hub"
+title.Text = "exprblx"
 title.TextColor3 = Color3.fromRGB(222, 222, 222)
 title.TextScaled = true
 title.TextSize = 14.000
@@ -191,4 +191,4 @@ close.MouseButton1Click:Connect(function()
 	z4hub:Destroy()
 end)
 
-print("Loaded z4 hub")
+print("Loaded exploding roblox ui")
