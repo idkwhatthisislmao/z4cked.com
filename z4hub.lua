@@ -57,7 +57,7 @@ Mainframe.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Mainframe.BackgroundTransparency = 0.550
 Mainframe.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Mainframe.BorderSizePixel = 0
-Mainframe.Position = UDim2.new(0.520068696, 0, 0.366720527, 0)
+Mainframe.Position = UDim2.new(0.510068696, 0, 0.366720527, 0)
 Mainframe.Size = UDim2.new(0.208, 0,0.238, 0)
 
 title.Name = "title"
