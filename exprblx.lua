@@ -20,6 +20,11 @@ local ScriptsTable = {
 		Desc = "Funny little tool, its in the name",
 		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/jerkoff.lua")
 	},
+	[2] = {
+		Name = "Jerk Tool (R15)",
+		Desc = "Funny little tool, its in the name",
+		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/jerkoffr15.lua")
+	},
 	[3] = {
 		Name = "Infinite Yield",
 		Desc = "A popular admin command script",
