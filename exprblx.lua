@@ -238,10 +238,11 @@ Scripts.BorderSizePixel = 0
 Scripts.Position = UDim2.new(0.0332285948, 0, 0.067237623, 0)
 Scripts.Size = UDim2.new(0.963159561, 0, 0.932762384, 0)
 Scripts.ScrollBarThickness = 3
+Scripts.CanvasSize = UDim.new(0, 0, 10, 0)
 
 UIListLayout.Parent = Scripts
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout.Padding = UDim.new(0.0199999996, 0)
+UIListLayout.Padding = UDim.new(0.005, 0)
 
 Actions.Name = "Actions"
 Actions.Parent = Frames
@@ -254,10 +255,11 @@ Actions.Position = UDim2.new(0.0332285948, 0, 0.067237623, 0)
 Actions.Size = UDim2.new(0.963159561, 0, 0.932762384, 0)
 Actions.Visible = false
 Actions.ScrollBarThickness = 3
+Actions.CanvasSize = UDim.new(0, 0, 10, 0)
 
 UIListLayout_2.Parent = Actions
 UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout_2.Padding = UDim.new(0.0199999996, 0)
+UIListLayout_2.Padding = UDim.new(0.005, 0)
 
 ScrollbarButtonTemp.Name = "ScrollbarButtonTemp"
 ScrollbarButtonTemp.Parent = Frames
@@ -413,9 +415,9 @@ end)
 ActionsButton.MouseButton1Click:Connect(function()
 	Actions.Visible = true
 	Scripts.Visible = false
-	
+
 	ClickSound:Play()
-	
+
 	game.TweenService:Create(ActionsButton, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {Size = UDim2.new(0.782, 0,0.258, 0)}):Play()
 	task.wait(0.1)
 	game.TweenService:Create(ActionsButton, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {Size = UDim2.new(0.881, 0,0.258, 0)}):Play()
@@ -434,9 +436,9 @@ end)
 ScriptsButton.MouseButton1Click:Connect(function()
 	Actions.Visible = false
 	Scripts.Visible = true
-	
+
 	ClickSound:Play()
-	
+
 	game.TweenService:Create(ScriptsButton, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {Size = UDim2.new(0.571, 0,0.2, 0)}):Play()
 	task.wait(0.1)
 	game.TweenService:Create(ScriptsButton, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {Size = UDim2.new(0.682, 0,0.258, 0)}):Play()
@@ -461,16 +463,16 @@ for _, Script in pairs(ScriptsTable) do
 	ScriptButton.Parent = Scripts
 	ScriptButton.Visible = true
 	ScriptButton.Text = Script.Name
-	
+
 	ScriptButton.MouseButton1Click:Connect(function()
 		pcall(function()
-		    Notification("Executed "..Script.Name)
+			Notification("Executed "..Script.Name)
 		end)
-		
+
 		task.spawn(function()
 			loadstring(Script.Src)()
 		end)
-		
+
 		ExecuteSound:Play()
 		game.TweenService:Create(ScriptButton, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {Size = UDim2.new(0.936, 0,0.207, 0)}):Play()
 		task.wait(0.1)
@@ -496,7 +498,7 @@ for _, Script in pairs(ActionsTable) do
 		task.spawn(function()
 			Script.Func()
 		end)
-		
+
 		ExecuteSound:Play()
 		game.TweenService:Create(ScriptButton, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {Size = UDim2.new(0.936, 0,0.207, 0)}):Play()
 		task.wait(0.1)
@@ -516,4 +518,4 @@ game.Players.LocalPlayer.OnTeleport:Connect(function(State)
 	queueteleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/exprblx.lua", true))()')
 end)
 
-Notification("Loaded exprblx panel (v2.22)")
+Notification("Loaded exprblx panel (v2.3)")
