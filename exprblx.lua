@@ -463,7 +463,9 @@ for _, Script in pairs(ScriptsTable) do
 	ScriptButton.Text = Script.Name
 	
 	ScriptButton.MouseButton1Click:Connect(function()
-		Notification("Executed "..Script.Name)
+		pcall(function()
+		    Notification("Executed "..Script.Name)
+		end)
 		
 		task.spawn(function()
 			loadstring(Script.Src)()
