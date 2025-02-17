@@ -20,22 +20,22 @@ local ScriptsTable = {
 		Desc = "Funny little tool, its in the name",
 		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/jerkoff.lua")
 	},
-	[2] = {
+	[3] = {
 		Name = "Jerk Tool (R15)",
 		Desc = "Funny little tool, its in the name",
 		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/jerkoffr15.lua")
 	},
-	[3] = {
+	[4] = {
 		Name = "Infinite Yield",
 		Desc = "A popular admin command script",
 		Src = game:HttpGet("https://raw.githubusercontent.com/edgeiy/infiniteyield/master/source")
 	},
-	[4] = {
+	[5] = {
 		Name = "Freecam",
 		Desc = "Official roblox freecam script (press shift + p)",
 		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/freecam.lua")
 	},
-	[5] = {
+	[6] = {
 		Name = "Synergy Networks Bypasser",
 		Desc = "A popular chat bypass script",
 		Src = game:HttpGetAsync("https://raw.githubusercontent.com/Synergy-Networks/products/main/BetterBypasser/loader.lua")
@@ -516,4 +516,4 @@ game.Players.LocalPlayer.OnTeleport:Connect(function(State)
 	queueteleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/exprblx.lua", true))()')
 end)
 
-Notification("Loaded exprblx panel (v2.21)")
+Notification("Loaded exprblx panel (v2.22)")
