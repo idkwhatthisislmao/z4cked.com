@@ -63,7 +63,7 @@ local ActionsTable = {
 				if #servers > 0 then
 					game["Teleport Service"]:TeleportToPlaceInstance(game.PlaceId, servers[math.random(1, #servers)], game.Players.LocalPlayer)
 				else
-					return Notification("Serverhop", "Couldn't find a server.")
+					return Notification("Couldn't find a server.")
 				end
 			else
 				Notification("Incompatible Exploit", "Your exploit does not support this command (missing request)")
