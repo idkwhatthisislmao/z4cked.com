@@ -74,7 +74,7 @@ local ActionsTable = {
 		Name = "Rejoin",
 		Desc = "Uses teleport service to rejoin the game",
 		Func = function()
-			game.TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+			game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
 		end,
 	}
 };
