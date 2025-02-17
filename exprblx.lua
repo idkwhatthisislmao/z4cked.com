@@ -514,4 +514,4 @@ game.Players.LocalPlayer.OnTeleport:Connect(function(State)
 	queueteleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/exprblx.lua", true))()')
 end)
 
-Notification("Loaded exprblx panel (v2.11)")
+Notification("Loaded exprblx panel (v2.2)")
