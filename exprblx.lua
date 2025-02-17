@@ -69,6 +69,13 @@ local ActionsTable = {
 				Notification("Incompatible Exploit", "Your exploit does not support this command (missing request)")
 			end
 		end,
+	},
+	[2] = {
+		Name = "Rejoin",
+		Desc = "Uses teleport service to rejoin the game",
+		Func = function()
+			TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+		end,
 	}
 };
 
