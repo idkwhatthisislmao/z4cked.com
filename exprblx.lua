@@ -25,20 +25,15 @@ local ScriptsTable = {
 		Desc = "A popular admin command script",
 		Src = game:HttpGet("https://raw.githubusercontent.com/edgeiy/infiniteyield/master/source")
 	},
-	[4] = {
-		Name = "Jailbreak Carspeed Spoofer",
-		Desc = "Spoofs the max speed of cars in jailbreak, allows you to go really fast.",
-		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/jailbreakcarspeedspoofer")
-	},
 	[5] = {
 		Name = "Freecam",
 		Desc = "Official roblox freecam script (press shift + p)",
 		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/freecam.lua")
 	},
 	[6] = {
-		Name = "UserCreation",
+		Name = "Synergy Networks Bypasser",
 		Desc = "A popular chat bypass script",
-		Src = game:HttpGet("https://raw.githubusercontent.com/1price/usercreation/main/UserCreation.lua", true)
+		Src = game:HttpGetAsync("https://raw.githubusercontent.com/Synergy-Networks/products/main/BetterBypasser/loader.lua")
 	},
 };
 
