@@ -373,11 +373,11 @@ game.TweenService:Create(Panel, TweenInfo.new(1, Enum.EasingStyle.Exponential, E
 
 OpenSound:Play()
 
-function Notification(Notification)
+function Notification(name)
 	pcall(function()
 		task.spawn(function()
 			local NewNoti = NotificationTemplate:Clone()
-			NewNoti.Text = Notification
+			NewNoti.Text = name
 			NewNoti.Position = UDim2.new(0,0,1,0)
 			NewNoti.TextTransparency = 1
 			NewNoti.Visible = true
