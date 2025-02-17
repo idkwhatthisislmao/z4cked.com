@@ -238,7 +238,7 @@ Scripts.BorderSizePixel = 0
 Scripts.Position = UDim2.new(0.0332285948, 0, 0.067237623, 0)
 Scripts.Size = UDim2.new(0.963159561, 0, 0.932762384, 0)
 Scripts.ScrollBarThickness = 3
-Scripts.CanvasSize = UDim.new(0, 0, 10, 0)
+Scripts.CanvasSize = UDim2.new(0, 0, 10, 0)
 
 UIListLayout.Parent = Scripts
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
@@ -255,7 +255,7 @@ Actions.Position = UDim2.new(0.0332285948, 0, 0.067237623, 0)
 Actions.Size = UDim2.new(0.963159561, 0, 0.932762384, 0)
 Actions.Visible = false
 Actions.ScrollBarThickness = 3
-Actions.CanvasSize = UDim.new(0, 0, 10, 0)
+Actions.CanvasSize = UDim2.new(0, 0, 10, 0)
 
 UIListLayout_2.Parent = Actions
 UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
