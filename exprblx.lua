@@ -40,6 +40,11 @@ local ScriptsTable = {
 		Desc = "A popular chat bypass script",
 		Src = game:HttpGetAsync("https://raw.githubusercontent.com/Synergy-Networks/products/main/BetterBypasser/loader.lua")
 	},
+	[7] = {
+		Name = "Pool Chat (Black Cat)",
+		Desc = "Allows you to see peoples chats while playing pool",
+		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/poolchat.lua")
+	},
 };
 
 local ActionsTable = {
@@ -518,4 +523,4 @@ game.Players.LocalPlayer.OnTeleport:Connect(function(State)
 	queueteleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/exprblx.lua", true))()')
 end)
 
-Notification("Loaded exprblx panel (v2.31)")
+Notification("Loaded exprblx panel (v2.32)")
