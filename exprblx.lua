@@ -6,7 +6,9 @@
 --- List wrap sidebar
 
 local Parent = game.CoreGui
-if game.CoreGui:FindFirstChild("exprblx") then return end
+
+if _G.exprblx then return end
+_G.exprblx = true
 
 local httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
 local queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
@@ -339,6 +341,7 @@ end
 CloseButton.MouseButton1Click:Connect(function()
 	game.TweenService:Create(Panel, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.In), {Size = UDim2.new(0,0,0,0)}):Play()
 	CloseSound:Play()
+	_G.exprblx = false
 	task.wait(0.6)
 	exprblx:Destroy()
 end)
@@ -450,5 +453,4 @@ end
 game.Players.LocalPlayer.OnTeleport:Connect(function(State)
 	queueteleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/exprblx.lua", true))()')
 end)
-
 Notification("Loaded exprblx panel (v2.4)")
