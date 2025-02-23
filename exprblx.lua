@@ -6,85 +6,13 @@
 --- List wrap sidebar
 
 local Parent = game.CoreGui
+if game.CoreGui:FindFirstChild("exprblx") then return end
+
 local httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
 local queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
 
-local ScriptsTable = {
-	[1] = {
-		Name = "Slippery",
-		Desc = "Makes it so when you press H, every part becomes slippery (toggle)",
-		Src = game:HttpGet('https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/slip.lua', true),
-	},
-	[2] = {
-		Name = "Jerk Tool (R6)",
-		Desc = "Funny little tool, its in the name",
-		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/jerkoff.lua")
-	},
-	[3] = {
-		Name = "Jerk Tool (R15)",
-		Desc = "Funny little tool, its in the name",
-		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/jerkoffr15.lua")
-	},
-	[4] = {
-		Name = "Infinite Yield",
-		Desc = "A popular admin command script",
-		Src = game:HttpGet("https://raw.githubusercontent.com/edgeiy/infiniteyield/master/source")
-	},
-	[5] = {
-		Name = "Freecam",
-		Desc = "Official roblox freecam script (press shift + p)",
-		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/freecam.lua")
-	},
-	[6] = {
-		Name = "Synergy Networks Bypasser",
-		Desc = "A popular chat bypass script",
-		Src = game:HttpGetAsync("https://raw.githubusercontent.com/Synergy-Networks/products/main/BetterBypasser/loader.lua")
-	},
-	[7] = {
-		Name = "Pool Chat (Black Cat)",
-		Desc = "Allows you to see peoples chats while playing pool",
-		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/poolchat.lua")
-	},
-};
-
-local ActionsTable = {
-	[1] = {
-		Name = "Server Hop",
-		Desc = "Uses games api to join a different server in the game you are in",
-		Func = function()
-			if httprequest then
-				local servers = {}
-				local req = httprequest({Url = string.format("https://games.roblox.com/v1/games/%d/servers/Public?sortOrder=Desc&limit=100&excludeFullGames=true", game.PlaceId)})
-				local body = game.HttpService:JSONDecode(req.Body)
-
-				if body and body.data then
-					for i, v in next, body.data do
-						if type(v) == "table" and tonumber(v.playing) and tonumber(v.maxPlayers) and v.playing < v.maxPlayers and v.id ~= game.JobId then
-							table.insert(servers, 1, v.id)
-						end
-					end
-				end
-
-				if #servers > 0 then
-					game["Teleport Service"]:TeleportToPlaceInstance(game.PlaceId, servers[math.random(1, #servers)], game.Players.LocalPlayer)
-				else
-					return Notification("Couldn't find a server.")
-				end
-			else
-				Notification("Incompatible Exploit", "Your exploit does not support this command (missing request)")
-			end
-		end,
-	},
-	[2] = {
-		Name = "Rejoin",
-		Desc = "Uses teleport service to rejoin the game",
-		Func = function()
-			game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
-		end,
-	}
-};
-
-if game.CoreGui:FindFirstChild("exprblx") then return end
+local ScriptsTable = loadstring(game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/exprblx_scripts_table.lua", true))()
+local ActionsTable = loadstring(game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/exprblx_actions_table.lua", true))()
 
 local exprblx = Instance.new("ScreenGui")
 local NotificationFrame = Instance.new("Frame")
@@ -523,4 +451,4 @@ game.Players.LocalPlayer.OnTeleport:Connect(function(State)
 	queueteleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/exprblx.lua", true))()')
 end)
 
-Notification("Loaded exprblx panel (v2.32)")
+Notification("Loaded exprblx panel (v2.4)")
