@@ -562,6 +562,7 @@ for _, Item in pairs(ShirtsTable) do
 	Button.Text = Asset.Name
 	Button.MouseButton1Click:Connect(function()
 		ClothingRemote:FireServer("Shirt", Item)
+		ExecuteSound:Play()
 	end)
 end
 for _, Item in pairs(PantsTable) do
@@ -572,6 +573,7 @@ for _, Item in pairs(PantsTable) do
 	Button.Text = Asset.Name
 	Button.MouseButton1Click:Connect(function()
 		ClothingRemote:FireServer("Pants", Item)
+		ExecuteSound:Play()
 	end)
 end
 for _, Item in pairs(HatsTable) do
@@ -582,6 +584,7 @@ for _, Item in pairs(HatsTable) do
 	Button.Text = Asset.Name
 	Button.MouseButton1Click:Connect(function()
 		HatRemote:FireServer(Item)
+		ExecuteSound:Play()
 	end)
 end
 for _, Item in pairs(RandomTable) do
@@ -592,6 +595,7 @@ for _, Item in pairs(RandomTable) do
 	Button.Text = Asset.Name
 	Button.MouseButton1Click:Connect(function()
 		HatRemote:FireServer(Item)
+		ExecuteSound:Play()
 	end)
 end
 for _, Item in pairs(FaceTable) do
@@ -602,6 +606,7 @@ for _, Item in pairs(FaceTable) do
 	Button.Text = Asset.Name
 	Button.MouseButton1Click:Connect(function()
 		FaceRemote:FireServer(Item)
+		ExecuteSound:Play()
 	end)
 end
 
@@ -612,4 +617,4 @@ TakeoffButton.MouseButton1Click:Connect(function()
 	TakeOffRemote:FireServer()
 end)
 
-Notification("Loaded Black Cat Asset Equipper panel (v1.4)")
+Notification("Loaded Black Cat Asset Equipper panel (v1.5)")
