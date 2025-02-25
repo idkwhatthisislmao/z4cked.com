@@ -526,7 +526,7 @@ game["Run Service"].Heartbeat:Connect(function()
 end)
 
 EquipButton.MouseButton1Click:Connect(function()
-	local AssetID = AssetIDBox.Text
+	local AssetID = tonumber(AssetIDBox.Text)
 	
 	ClothingRemote:FireServer("Pants", AssetID)
 	ClothingRemote:FireServer("Shirt", AssetID)
@@ -617,4 +617,4 @@ TakeoffButton.MouseButton1Click:Connect(function()
 	TakeOffRemote:FireServer()
 end)
 
-Notification("Loaded Black Cat Asset Equipper panel (v1.5)")
+Notification("Loaded Black Cat Asset Equipper panel (v1.6)")
