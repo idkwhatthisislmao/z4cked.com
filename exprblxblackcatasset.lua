@@ -530,8 +530,8 @@ EquipButton.MouseButton1Click:Connect(function()
 	
 	ClothingRemote:FireServer("Pants", AssetID)
 	ClothingRemote:FireServer("Shirt", AssetID)
-	FaceRemote:FireServer(AssetIDBox)
-	HatRemote:FireServer(AssetIDBox)
+	FaceRemote:FireServer(AssetID)
+	HatRemote:FireServer(AssetID)
 end)
 
 RandomizeButton.MouseButton1Click:Connect(function()
@@ -617,4 +617,4 @@ TakeoffButton.MouseButton1Click:Connect(function()
 	TakeOffRemote:FireServer()
 end)
 
-Notification("Loaded Black Cat Asset Equipper panel (v1.6)")
+Notification("Loaded Black Cat Asset Equipper panel (v1.7)")
