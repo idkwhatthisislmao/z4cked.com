@@ -39,6 +39,11 @@ local ScriptsTable = {
 		Desc = "Allows you to see peoples chats while playing pool",
 		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/poolchat.lua")
 	},
+	[9] = {
+		Name = "View Notifier (Black Cat)",
+		Desc = "Allows you to see when staff are viewing you",
+		Src = game:HttpGet("https://github.com/idkwhatthisislmao/roblo/blob/main/viewnotifier.lua")
+	},
 };
 
 return ScriptsTable
