@@ -35,14 +35,14 @@ local ScriptsTable = {
 		Src = game:HttpGetAsync("https://raw.githubusercontent.com/Synergy-Networks/products/main/BetterBypasser/loader.lua")
 	},
 	[8] = {
-		Name = "Pool Chat (Black Cat)",
+		Name = "Pool Chat (TBC)",
 		Desc = "Allows you to see peoples chats while playing pool",
 		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/poolchat.lua")
 	},
 	[9] = {
-		Name = "View Notifier (Black Cat)",
+		Name = "View Notifier (TBC)",
 		Desc = "Allows you to see when staff are viewing you",
-		Src = game:HttpGet("https://github.com/idkwhatthisislmao/roblo/blob/main/viewnotifier.lua")
+		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/viewnotifier.lua")
 	},
 };
 
