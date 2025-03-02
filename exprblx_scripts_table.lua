@@ -30,7 +30,7 @@ local ScriptsTable = {
 		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/freecam.lua")
 	},
 	[7] = {
-		Name = "SynergyNetworks Bypasser",
+		Name = "Synergy Networks Bypasser",
 		Desc = "A popular chat bypass script",
 		Src = game:HttpGetAsync("https://raw.githubusercontent.com/Synergy-Networks/products/main/BetterBypasser/loader.lua")
 	},
