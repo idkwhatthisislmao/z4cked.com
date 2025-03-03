@@ -44,6 +44,11 @@ local ScriptsTable = {
 		Desc = "Allows you to see when staff are viewing you",
 		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/viewnotifier.lua")
 	},
+	[10] = {
+		Name = "Upside Down",
+		Desc = "Makes your character upside down for others",
+		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/upsidedown.lua")
+	},
 };
 
 return ScriptsTable
