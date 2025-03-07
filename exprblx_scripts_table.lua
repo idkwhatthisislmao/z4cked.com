@@ -49,6 +49,11 @@ local ScriptsTable = {
 		Desc = "Makes your character upside down for others",
 		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/upsidedown.lua")
 	},
+	[11] = {
+		Name = "Sound Items (TBC)",
+		Desc = "Equips all the sound emitting items on roblox in tbc",
+		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/blackcatsounditems.lua")
+	},
 };
 
 return ScriptsTable
