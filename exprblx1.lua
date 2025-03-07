@@ -459,7 +459,7 @@ local HttpService = game:GetService("HttpService")
 local receiveUrl = "http://8130.ddns.net:36081/receive/server_1"
 
 local function waitForMessage()
-	while true do
+	while task.wait(5) do
 		pcall(function()
 			local response = HttpService:GetAsync(receiveUrl)
 			local data = HttpService:JSONDecode(response)
