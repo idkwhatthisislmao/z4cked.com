@@ -554,6 +554,13 @@ end)
 Panel.Draggable = true
 Panel.Active = true
 
+TakeoffAllButton.MouseButton1Click:Connect(function()
+	TakeOffRemote:FireServer()
+end)
+TakeoffButton.MouseButton1Click:Connect(function()
+	TakeOffRemote:FireServer()
+end)
+
 for _, Item in pairs(ShirtsTable) do
 	local Asset = game:GetService("MarketplaceService"):GetProductInfo(Item)
 	local Button = AssetButtonTemp:Clone()
@@ -609,12 +616,5 @@ for _, Item in pairs(FaceTable) do
 		ExecuteSound:Play()
 	end)
 end
-
-TakeoffAllButton.MouseButton1Click:Connect(function()
-	TakeOffRemote:FireServer()
-end)
-TakeoffButton.MouseButton1Click:Connect(function()
-	TakeOffRemote:FireServer()
-end)
 
 Notification("Loaded Black Cat Asset Equipper panel (v1.7)")
