@@ -29,11 +29,6 @@ local ScriptsTable = {
 		Desc = "Official roblox freecam script (press shift + p)",
 		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/freecam.lua")
 	},
-	[7] = {
-		Name = "Synergy Networks Bypasser",
-		Desc = "A popular chat bypass script",
-		Src = game:HttpGetAsync("https://raw.githubusercontent.com/Synergy-Networks/products/main/BetterBypasser/loader.lua")
-	},
 	[8] = {
 		Name = "Pool Chat (TBC)",
 		Desc = "Allows you to see peoples chats while playing pool",
