@@ -617,4 +617,4 @@ for _, Item in pairs(FaceTable) do
 	end)
 end
 
-Notification("Loaded Black Cat Asset Equipper panel (v1.7)")
+Notification("Loaded Black Cat Asset Equipper panel (v1.8)")
