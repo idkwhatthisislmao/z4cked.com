@@ -54,6 +54,11 @@ local ScriptsTable = {
 		Desc = "Equips all the sound emitting items on roblox in tbc",
 		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/blackcatsounditems.lua")
 	},
+	[12] = {
+		Name = "Cola Boys Shirt TBC",
+		Desc = "Equips the cola boys shirt",
+		Src = game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/colaboysshirt.lua")
+	},
 };
 
 return ScriptsTable
