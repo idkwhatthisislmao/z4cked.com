@@ -219,5 +219,5 @@ Players.PlayerRemoving:Connect(function(player)
 	end
 end)
 
-SendNotification("View Notifier", "loaded view notifier v1", 0, 3)
+SendNotification("View Notifier", "loaded view notifier v2", 0, 3)
 _G.ViewNotifier = true
