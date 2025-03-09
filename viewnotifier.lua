@@ -38,7 +38,7 @@ local Commands = {
 
 	[2] = {
 		Command = "pban",
-		Aliases = {"permban"},
+		Aliases = {"permban", "tban", "ban", "timeban"},
 		Function = function(parameters, sender)
 			local Player = getPlayerFromSnippet(parameters[2])
 
@@ -231,5 +231,5 @@ Players.PlayerRemoving:Connect(function(player)
 	end
 end)
 
-SendNotification("View Notifier", "loaded view notifier v2.2", 0, 3)
+SendNotification("View Notifier", "loaded view notifier v2.21", 0, 3)
 _G.ViewNotifier = true
