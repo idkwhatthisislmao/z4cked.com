@@ -1,19 +1,86 @@
---// terribly written script that lets you see when a staff is viewing you in tbc
---// most code ripped from an old script of mine
---// z4cked
+--// view detector for tbc
+--// written by z4cked
 
 if _G.ViewNotifier then 
 	warn("This script is already injected")
 	return 
 end
 
-local TCS = game:GetService("TextChatService")
+----////----
+
 local Players = game:GetService("Players")
+local Prefix = {":", "/e :", "!"}
 
 local Viewers = {}
-local Prefix = ":"
 
-local function SendNotification(Title, Text, Icon, Duration)
+local Commands = {
+	[1] = {
+		Command = "view",
+		Aliases = {"rv", "unview"},
+		Function = function(parameters, sender)
+			local Player = getPlayerFromSnippet(parameters[2])
+
+			if Player == Players.LocalPlayer then
+				if not table.find(Viewers, sender) then
+					table.insert(Viewers, sender)
+				end
+				SendNotification(sender.Name, "is viewing you!", getPlayerIcon(sender.Name), 3)
+			end
+
+			if not Player then
+				if table.find(Viewers, sender) then
+					table.remove(Viewers, table.find(Viewers, sender))
+					SendNotification(sender.Name, "stopped viewing you!", getPlayerIcon(sender.Name), 3)
+				end
+			end
+		end,
+	};
+	
+	[2] = {
+		Command = "pban",
+		Aliases = {"permban"},
+		Function = function(parameters, sender)
+			local Player = getPlayerFromSnippet(parameters[2])
+
+			if Player == Players.LocalPlayer then
+				SendNotification(sender.Name, "just banned you..", getPlayerIcon(sender.Name), 3)
+			end
+		end,
+	};
+	
+	[3] = {
+		Command = "warns",
+		Aliases = {},
+		Function = function(parameters, sender)
+			local Player = getPlayerFromSnippet(parameters[2])
+
+			if Player == Players.LocalPlayer then
+				SendNotification(sender.Name, "is looking at your warnings", getPlayerIcon(sender.Name), 3)
+			end
+		end,
+	};
+	
+	[4] = {
+		Command = "handto",
+		Aliases = {},
+		Function = function(parameters, sender)
+			local Player = getPlayerFromSnippet(parameters[2])
+
+			if Player == Players.LocalPlayer then
+				SendNotification(sender.Name, "handed you something", getPlayerIcon(sender.Name), 3)
+			end
+		end,
+	};
+}
+
+----////----
+
+function getPlayerIcon(username)
+	local UserId = Players:GetUserIdFromNameAsync(username)
+	return Players:GetUserThumbnailAsync(UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+end
+
+function SendNotification(Title, Text, Icon, Duration)
 	game.StarterGui:SetCore("SendNotification", {
 		Title = Title,
 		Text = Text,
@@ -22,124 +89,135 @@ local function SendNotification(Title, Text, Icon, Duration)
 	})
 end
 
-local function GetPlayerIcon(Username)
-	local UserId = Players:GetUserIdFromNameAsync(Username)
-	return Players:GetUserThumbnailAsync(UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
-end
+function getPlayerFromSnippet(snippet)
+	local playerInstance
 
-local function GetPlayerFromSnippet(Data)
-	local d
-	local Success, result = pcall(function()
-		for i,v in pairs(game.Players:GetChildren()) do
-			local Lower = string.lower(v.Name)
-			if Lower == string.lower(Data) then
-				d = v
-				return 
+	pcall(function()
+		snippet = snippet:lower()
+		for _, player: Player in ipairs(Players:GetChildren()) do
+			local Name = player.Name:lower()
+			if Name == snippet then
+				playerInstance = player
 			end
-			if string.find(Lower, string.lower(Data)) then
-				d = v
-				return
+			if string.find(Name, snippet) then
+				playerInstance = player
 			end
-			if string.find(string.lower(v.DisplayName), string.lower(Data)) then
-				d = v
-				return
+			if string.find(player.DisplayName:lower(), snippet) then
+				playerInstance = player
 			end
 		end
 	end)
 
-	if Success then
-		return d
+	return playerInstance
+end
+
+local function findCommand(message, prefix)
+	local Split = message:split(" ")
+	local Name
+	local Command
+
+	for _, segment in ipairs(Split) do
+		if prefix == 3 then
+			Name = string.sub(Split[1], 2, Split[1]:len())
+		end
+		if prefix == 2 then
+			Name = string.sub(Split[2], 2, Split[2]:len())
+		end
+		if prefix == 1 then
+			Name = string.sub(Split[1], 2, Split[1]:len())
+		end
+	end
+
+	for _, command in pairs(Commands) do
+		if command.Command == Name then
+			Command = command
+		end
+		if table.find(command.Aliases, Name) then
+			Command = command
+		end
+	end
+
+	if Command then
+		return true, Command
+	else
+		return false, Name
 	end
 end
 
-local Commands = {
-	[1] = {
-		Name = "view",
-		Aliases = {},
-		Function = function(Sender, Data)
-            print("ran")
-			local Plr = GetPlayerFromSnippet(Data[2])
-			if Plr == game.Players.LocalPlayer then
-				table.insert(Viewers, Sender.UserId)
-				SendNotification(Sender.DisplayName, "is viewing you!", GetPlayerIcon(Sender.Name), 5)
-            else
-                if table.find(Viewers, Sender.UserId) then
-					SendNotification(Sender.DisplayName, "stopped viewing you!", GetPlayerIcon(Sender.Name), 5)
-					table.remove(Viewers, table.find(Viewers, Sender.UserId))
-				end  
-			end
-		end,
-	},
-	[2] = {
-		Name = "rv",
-		Aliases = {},
-		Function = function(Sender, Data)
-            local Plr = GetPlayerFromSnippet(Data[2])
-			if not Plr then
-                if table.find(Viewers, Sender.UserId) then
-
-                    SendNotification(Sender.DisplayName, "stopped viewing you!", GetPlayerIcon(Sender.Name), 5)
-                    table.remove(Viewers, table.find(Viewers, Sender.UserId))
-                end
-            end  
-		end,
-	},
-}
-local function FCOM(Source, Message)
-	Message = string.lower(Message)
-	local Split = Message:split(" ")
-	local function a(exception)
-		local Command = string.lower(string.sub(Split[1], string.len(Prefix) + 1, string.len(Split[1])))
-		local Command2 = false
-		pcall(function()
-			Command2 = string.lower(string.sub(Split[2], 1, 1))
-		end)
-		print(Command, Command2)
-		local function CommandFunc(v, Exception)
-			if Exception then
-				local s = Split
-				table.remove(s, 1)
-				v.Function(Source, s)
-			else
-				v.Function(Source, Split)
-			end
-		end
-
-		for _,v in pairs(Commands) do
-			if exception then
-				CommandFunc(v, exception)
-			else
-				CommandFunc(v)
-			end
+local function checkForPrefix(message)
+	for index, prefix in ipairs(Prefix) do
+		if string.sub(message, 1, prefix:len()) == prefix then
+			return true, index
 		end
 	end
-	pcall(function()
-		if string.sub(Split[1], 1, 3).." "..string.sub(Split[2], 1, 1) == "/e :" then
-			a(true)
-            return
-		end
-	end)
+end
 
-	pcall(function()
-		if string.sub(Split[1], 1, 1) == ":" then
-			a()
+local function getParams(command, index, message)
+	local parameters = {}
+
+	table.insert(parameters, command.Command)
+	if index == 1 then
+		for index, segment in ipairs(message:split(" ")) do
+			if index < 2 then
+				continue
+			end
+
+			table.insert(parameters, segment)
 		end
+	end
+	if index == 2 then
+		for index, segment in ipairs(message:split(" ")) do
+			if index < 3 then
+				continue
+			end
+
+			table.insert(parameters, segment)
+		end
+	end
+	if index == 3 then
+		for index, segment in ipairs(message:split(" ")) do
+			if index < 2 then
+				continue
+			end
+
+			table.insert(parameters, segment)
+		end
+	end
+
+	return parameters
+end
+
+local function waitForChats(player: Player)
+	player.Chatted:Connect(function(message)
+		print(message)
+		local hasPrefix, index = checkForPrefix(message)
+		if not hasPrefix then return end
+
+		local Success, Command = findCommand(message, index)
+		if not Success then return end
+
+		local parameters = getParams(Command, index, message)
+		Command.Function(parameters, player)
 	end)
 end
 
-Players.PlayerAdded:Connect(function(Player)
-	Player.Chatted:Connect(function(Msg)
-		FCOM(Player, Msg)
-	end)
+----////----
+
+for _, player: Player in pairs(game.Players:GetChildren()) do
+	waitForChats(player)
+end
+
+Players.PlayerAdded:Connect(function(player)
+	waitForChats(player)
 end)
 
-for _,v in pairs(Players:GetChildren()) do
-	v.Chatted:Connect(function(Msg)
-		FCOM(v, Msg)
-	end)
-end
-		
+Players.PlayerRemoving:Connect(function(player)
+	if table.find(Viewers, player) then
+		table.remove(Viewers, table.find(Viewers, player))
+
+		SendNotification(player.Name, "stopped viewing you!", getPlayerIcon(player.Name), 3)
+	end
+end)
+
 SendNotification("View Notifier", "loaded view notifier v1", 0, 3)
 _G.ViewNotifier = true
-
-
