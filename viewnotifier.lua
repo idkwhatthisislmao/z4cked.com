@@ -1,8 +1,6 @@
 --// view detector for tbc
 --// written by z4cked
 
-task.wait(3)
-
 if _G.ViewNotifier then 
 	warn("This script is already injected")
 	return 
