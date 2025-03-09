@@ -1,6 +1,8 @@
 --// view detector for tbc
 --// written by z4cked
 
+task.wait(3)
+
 if _G.ViewNotifier then 
 	warn("This script is already injected")
 	return 
@@ -9,7 +11,7 @@ end
 ----////----
 
 local Players = game:GetService("Players")
-local Prefix = {":", "/e :", "!"}
+local Prefix = {":", "/e :", "!", "/e"}
 
 local Viewers = {}
 
@@ -35,7 +37,7 @@ local Commands = {
 			end
 		end,
 	};
-	
+
 	[2] = {
 		Command = "pban",
 		Aliases = {"permban"},
@@ -47,7 +49,7 @@ local Commands = {
 			end
 		end,
 	};
-	
+
 	[3] = {
 		Command = "warns",
 		Aliases = {},
@@ -59,7 +61,7 @@ local Commands = {
 			end
 		end,
 	};
-	
+
 	[4] = {
 		Command = "handto",
 		Aliases = {},
@@ -117,6 +119,9 @@ local function findCommand(message, prefix)
 	local Command
 
 	for _, segment in ipairs(Split) do
+		if prefix == 4 then
+			Name = string.sub(Split[2], 1, Split[2]:len())
+		end
 		if prefix == 3 then
 			Name = string.sub(Split[1], 2, Split[1]:len())
 		end
@@ -183,13 +188,22 @@ local function getParams(command, index, message)
 			table.insert(parameters, segment)
 		end
 	end
+	if index == 4 then
+		for index, segment in ipairs(message:split(" ")) do
+			if index < 3 then
+				continue
+			end
+
+			table.insert(parameters, segment)
+		end
+	end
 
 	return parameters
 end
 
 local function waitForChats(player: Player)
 	player.Chatted:Connect(function(message)
-		print(message)
+		print("["..player.Name.."] "..message)
 		local hasPrefix, index = checkForPrefix(message)
 		if not hasPrefix then return end
 
@@ -219,5 +233,5 @@ Players.PlayerRemoving:Connect(function(player)
 	end
 end)
 
-SendNotification("View Notifier", "loaded view notifier v2", 0, 3)
+SendNotification("View Notifier", "loaded view notifier v2.2", 0, 3)
 _G.ViewNotifier = true
