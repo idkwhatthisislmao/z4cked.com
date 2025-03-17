@@ -2,7 +2,7 @@ local ScriptsTable = {
 	[1] = {
 		Name = "TBC Avatar Panel",
 		Desc = "Makes it so when you press H, every part becomes slippery (toggle)",
-		Src = game:HttpGet('https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/exprblxblackcatasset.lua', true),
+		Src = game:HttpGet('https://www.z4cked.com/rbx/scripts/tbc/accessories.lua', true),
 	},
 	[2] = {
 		Name = "Slippery",
