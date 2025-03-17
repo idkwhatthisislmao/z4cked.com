@@ -13,8 +13,8 @@ _G.exprblx = true
 local httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
 local queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
 
-local ScriptsTable = loadstring(game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/exprblx_scripts_table.lua", true))()
-local ActionsTable = loadstring(game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/exprblx_actions_table.lua", true))()
+local ScriptsTable = loadstring(game:HttpGet("https://www.z4cked.com/rbx/scripts/exprblx_scripts_table.lua", true))()
+local ActionsTable = loadstring(game:HttpGet("https://www.z4cked.com/rbx/scripts/exprblx_actions_table.lua", true))()
 
 local exprblx = Instance.new("ScreenGui")
 local NotificationFrame = Instance.new("Frame")
@@ -460,6 +460,6 @@ for _, Script in pairs(ActionsTable) do
 end
 
 game.Players.LocalPlayer.OnTeleport:Connect(function(State)
-	queueteleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/exprblx1.lua", true))()')
+	queueteleport('loadstring(game:HttpGet("https://www.z4cked.com/rbx/scripts/exprblx.lua", true))()')
 end)
 Notification("Loaded exprblx panel (v2.6)")
