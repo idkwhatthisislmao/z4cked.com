@@ -1,4 +1,4 @@
-local equip = loadstring(game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/roblo/refs/heads/main/blackcatequip.lua"))()
+local equip = loadstring(game:HttpGet("https://www.z4cked.com/rbx/scripts/tbc/accessories.lua"))()
 
 equip({
     33070696,
