@@ -38,15 +38,15 @@ end
 
 while task.wait(Rate) do
     for _, Stuff in pairs(Table) do
-        if Stuff.Type = "Name" then
+        if Stuff.Type == "Name" then
             local seq = customSequence("Name", Stuff.Sequence)
             NamechangeEvent:FireServer("Namey", seq)
         end    
-        if Stuff.Type = "Rank" then
+        if Stuff.Type == "Rank" then
             local seq = customSequence("Rank", Stuff.Sequence)
             NamechangeEvent:FireServer("Rank", seq)
         end   
-        if Stuff.Type = "Afk" then
+        if Stuff.Type == "Afk" then
             local seq = customSequence("Afk", Stuff.Sequence)
             NamechangeEvent:FireServer("AfkTimer", seq)
         end   
