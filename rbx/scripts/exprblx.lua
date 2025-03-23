@@ -14,7 +14,7 @@ local httprequest = (syn and syn.request) or (http and http.request) or http_req
 local queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
 
 local ScriptsTable = loadstring(game:HttpGet("https://www.z4cked.com/rbx/scripts/exprblx_scripts_table.lua", true))()
-local ActionsTable = loadstring(game:HttpGet("https://www.z4cked.com/rbx/scripts/exprblx_actions_table.lua", true))()
+local ActionsTable = loadstring(game:HttpGet("https://www.z4cked.com/rbx/scripts/exprblx_actions_table_nerf.lua", true))()
 
 local exprblx = Instance.new("ScreenGui")
 local NotificationFrame = Instance.new("Frame")
@@ -462,4 +462,4 @@ end
 game.Players.LocalPlayer.OnTeleport:Connect(function(State)
 	queueteleport('loadstring(game:HttpGet("https://www.z4cked.com/rbx/scripts/exprblx.lua", true))()')
 end)
-Notification("Loaded exprblx panel (v2.6)")
+Notification("Loaded exprblx panel (v2.7)")
