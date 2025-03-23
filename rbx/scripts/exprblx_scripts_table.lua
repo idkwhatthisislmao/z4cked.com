@@ -1,7 +1,7 @@
 local ScriptsTable = {
 	[1] = {
 		Name = "TBC Avatar Panel",
-		Desc = "Makes it so when you press H, every part becomes slippery (toggle)",
+		Desc = "avatar panel",
 		Src = game:HttpGet('https://www.z4cked.com/rbx/scripts/tbc/accessorypanel.lua', true),
 	},
 	[2] = {
@@ -53,6 +53,11 @@ local ScriptsTable = {
 		Name = "Cola Boys Shirt TBC",
 		Desc = "Equips the cola boys shirt",
 		Src = game:HttpGet("https://www.z4cked.com/rbx/scripts/tbc/colaboys.lua")
+	},
+	[13] = {
+		Name = "Rainbow Nametag TBC",
+		Desc = "Gives u a rainbow nametag",
+		Src = game:HttpGet("https://www.z4cked.com/rbx/scripts/tbc/rainbow.lua")
 	},
 };
 
