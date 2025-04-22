@@ -30,7 +30,8 @@ local function req(Data)
 end
 
 local function serverhop()
-	if httprequest then
+	pcall(function()
+	     if httprequest then
 		local servers = {}
 		local req = httprequest({Url = string.format("https://games.roblox.com/v1/games/%d/servers/Public?sortOrder=Desc&limit=100&excludeFullGames=true", game.PlaceId)})
 		local body = game.HttpService:JSONDecode(req.Body)
@@ -47,10 +48,11 @@ local function serverhop()
 			game["Teleport Service"]:TeleportToPlaceInstance(game.PlaceId, servers[math.random(1, #servers)], game.Players.LocalPlayer)
 		end
 	end
+	end)
 end    
 
 local function Join()
-	task.wait(3)
+	task.wait(2)
 
 	for _, rift in pairs(Rifts:GetChildren()) do
 		if rift.Name == "royal-chest" then
@@ -75,12 +77,14 @@ local function Join()
 		end
 	end
 
+	task.wait(1)
+	task.spawn(serverhop)
 	task.wait(3)
-	serverhop()
-	task.wait(3)
-	warn("ruh roh")
-	while task.wait(2) do
-	    serverhop()
+	warn("teleport attempt failed!")
+	while true do
+	    print("retrying teleport..")
+	    task.spawn(serverhop)
+	    task.wait(2)
 	end
 end
 
