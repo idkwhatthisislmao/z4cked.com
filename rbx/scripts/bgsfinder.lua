@@ -89,6 +89,6 @@ local function Join()
 end
 
 game.Players.LocalPlayer.OnTeleport:Connect(function(State)
-	queue_on_teleport('loadstring(game:HttpGet("https://www.z4cked.com/rbx/scripts/bgsfinder.lua", true))()')
+	queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/idkwhatthisislmao/z4cked.com/refs/heads/main/rbx/scripts/bgsfinder.lua", true))()')
 end)
 Join()
