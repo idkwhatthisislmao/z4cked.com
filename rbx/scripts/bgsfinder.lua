@@ -20,7 +20,7 @@ local embedData = {
 
 local function req(Data)
     httprequest({
-        Url = WebhookURL
+        Url = WebhookURL,
         Method = "POST",
         Headers = {
             ['Content-Type'] = 'application/json'
@@ -49,7 +49,7 @@ local function serverhop()
             return Notification("Couldn't find a server.")
         end
     end
-end)    
+end    
 
 local function Join()
     task.wait(3)
@@ -57,30 +57,30 @@ local function Join()
     for _, rift in pairs(Rifts:GetChildren()) do
         if rift.Name == "royal-chest" then
             local Timer = rift.Display.SurfaceGui.Timer.Text
-            local newEmbedData = embedData
+            local newEmbedData = table.clone(embedData)
 
             newEmbedData.embeds.description = "A royal chest has been found!"
-            newEmbedData.embeds.fields[1].value = "https://fern.wtf/joiner?placeId="..game.PlaceId.."&gameInstanceId="..game.JobId
+            newEmbedData.embeds.fields[1].value = string.format("https://fern.wtf/joiner?placeId=%s&gameInstanceId=%s", game.PlaceId, game.JobId)
             newEmbedData.embeds.fields[1].name = Timer
 
             req(newEmbedData)
         end
        if rift.Name == "golden-chest" then
             local Timer = rift.Display.SurfaceGui.Timer.Text
-            local newEmbedData = embedData
+            local newEmbedData = table.clone(embedData)
 
             newEmbedData.embeds.description = "A golden chest has been found this test"
-            newEmbedData.embeds.fields[1].value = "https://fern.wtf/joiner?placeId="..game.PlaceId.."&gameInstanceId="..game.JobId
+            newEmbedData.embeds.fields[1].value = string.format("https://fern.wtf/joiner?placeId=%s&gameInstanceId=%s", game.PlaceId, game.JobId)
             newEmbedData.embeds.fields[1].name = Timer
 
             req(newEmbedData)
         end
         if rift.Name == "man-egg" then
             local Timer = rift.Display.SurfaceGui.Timer.Text
-            local newEmbedData = embedData
+            local newEmbedData = table.clone(embedData)
 
-            newEmbedData.embeds.description = "Holy shit im boutta nut theres a man egg"
-            newEmbedData.embeds.fields[1].value = "https://fern.wtf/joiner?placeId="..game.PlaceId.."&gameInstanceId="..game.JobId
+            newEmbedData.embeds.description = "A man face thing has been found!"
+            newEmbedData.embeds.fields[1].value = string.format("https://fern.wtf/joiner?placeId=%s&gameInstanceId=%s", game.PlaceId, game.JobId)
             newEmbedData.embeds.fields[1].name = Timer
 
             req(newEmbedData)
@@ -89,6 +89,6 @@ local function Join()
 
     task.wait(3)
     serverhop()
-end)
+end
 
 Join()
