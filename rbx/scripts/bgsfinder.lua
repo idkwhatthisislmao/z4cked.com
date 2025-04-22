@@ -76,6 +76,9 @@ local function Join()
 	end
 
 	task.wait(3)
+	serverhop()
+	task.wait(3)
+	warn("ruh roh")
 	while task.wait(2) do
 	    serverhop()
 	end
