@@ -40,9 +40,9 @@ local ScriptsTable = {
 		Src = game:HttpGet("https://www.z4cked.com/rbx/scripts/tbc/viewnotifier.lua")
 	},
 	[10] = {
-		Name = "Upside Down",
-		Desc = "Makes your character upside down for others",
-		Src = game:HttpGet("https://www.z4cked.com/rbx/scripts/upsidedown.lua")
+		Name = "Chaseify",
+		Desc = "Turns you into chase",
+		Src = game:HttpGet("https://www.z4cked.com/rbx/scripts/tbc/chaseify.lua")
 	},
 	[11] = {
 		Name = "Sound Items (TBC)",
